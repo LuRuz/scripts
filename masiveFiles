@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#Este script es util para crear muchos archivos de golpe, modificar lo mismo en todos o añadir texto a muchos archivos vacios.
+#Este script es util para crear muchos archivos o modificarlos
 
 echo "Do you want to create new files? Y/n"
 read answer
@@ -17,11 +17,14 @@ then
   read name
   echo "Extension? (Don't forget the initial point)"
   read extension
+  echo "Content?"
+  read content
 
 #Creation of files
   for ((i==1 ; i<=numberFiles; i++))
   do
     touch $name$i$extension
+    echo "$content">$name$i$extension
   done
 else
   echo "Modification of files:"
@@ -30,25 +33,13 @@ else
   cd "${ubication//\~/$HOME}"
   echo "Extension? (Don't forget the initial point)"
   read extension
-  
-  echo "Are empties? Y/n"
-  read answer
-  answer=${answer,,} #UPPER To lower
-
-  if [ "$answer" = "y" ]
-  then
-    echo "Writte the text:"
-    read text
-    find . -type f -name "*$extension" | cat $text > *
-
-  else
-    echo "Word to change:"
-    read Name1
-    echo "New word: "
-    read Name2
+  echo "Word to change:"
+  read Name1
+  echo "New word: "
+  read Name2
 
     find . -type f -name "*$extension" | xargs sed -i "s/$Name1/$Name2/g"
-  fi
+
 fi
 
 echo "Done"
