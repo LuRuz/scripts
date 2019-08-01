@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+#Cambia todas las vocales de un documento por i's
+
+echo "Where is the file?"
+read ubication
+cd "${ubication//\~/$HOME}"
+echo "Name?"
+read name
+
+content=$(<$name)
+
+echo "${content//a/i}">$name
+content=$(<$name)
+echo "${content//e/i}">$name
+content=$(<$name)
+echo "${content//o/i}">$name
+content=$(<$name)
+echo "${content//u/i}">$name
+content=$(<$name)
+echo "${content//A/I}">$name
+content=$(<$name)
+echo "${content//E/I}">$name
+content=$(<$name)
+echo "${content//O/I}">$name
+content=$(<$name)
+echo "${content//U/I}">$name
