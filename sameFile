@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+#Este script es util para crear el mismo archivo dentro de las carpetas
+#que se encuentran en la direccion introducida
+
+echo "Where?"
+read ubication
+
+cd "${ubication//\~/$HOME}"
+
+echo "File name:"
+read fName
+
+
+#Creation of files
+for i in ./*;
+do
+  cd $i
+  touch $fName
+  cd ..
+done
+
+echo "Done"
