@@ -13,11 +13,7 @@ read fName
 
 
 #Creation of files
-for i in ./*;
-do
-  cd $i
-  touch $fName
-  cd ..
-done
+find . -type d -exec touch {}/$fName \;
+
 
 echo "Done"
