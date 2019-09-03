@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#Este script es util para crear el mismo archivo dentro de las carpetas
+#Este script es util para crear la misma subcarpeta dentro de las carpetas
 #que se encuentran en la direccion introducida
 
 echo "Where?"
@@ -13,7 +13,7 @@ read fName
 
 
 #Creation of files
-find . -mindepth 1 -maxdepth 1 -type d -exec touch {}/$fName \;
+find . -mindepth 1 -maxdepth 1 -type d -exec mkdir {}/$fName \;
 
 
 echo "Done"
