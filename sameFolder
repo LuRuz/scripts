@@ -8,7 +8,7 @@ read ubication
 
 cd "${ubication//\~/$HOME}"
 
-echo "File name:"
+echo "Folder name:"
 read fName
 
 
