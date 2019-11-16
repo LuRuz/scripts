@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+#Este script es util para el laboratorio 2 de Arquitectura de Computadores
+
+echo "Inicializando programa..."
+echo "¿Dónde se encuentran los archivos? Introducir dirección"
+  read ubication
+  cd "${ubication//\~/$HOME}"
+
+make
+echo "¡Make hecho de manera correcta!"
+
+D=(16384,8,32 32768,8,32 32768,8,64)
+L=(131072,8,64 262144,8,64 262144,8,64)
+PROGRAMS=(loop_merge loop_merge-opt access_seq access_strided soa aos product product_block)
+
+for ((j==0 ; i<3; i++))
+do
+  cd bin
+  echo "ha entrado en bin"
+  for ((i==0 ; i<8; i++))
+  do
+    vallgrind --total = cachegrind --D1= ${arr[j]} --L2= ${arr[j]} --cachegrind-out-file= fsalida$j$i ./${PROGRAMS[i]}
+    echo "crea vallgrind"
+    ls
+    cp fsalida$j$i
+    echo "cp"
+  done
+
+  cd ..
+  echo "sale de bin"
+
+  for ((i==0 ; i<8; i++))
+  do
+    cg_annotate fsalida$i /users/alumnos/adxxx/$ubication/${PROGRAMS[i]}.cpp
+    echo "creado annotate"
+  done
+done
+
+echo "Done"
