@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+var=(1 25 50 75 100)
+sudo cp qtable.ini.txt qtable.txt
+
+  for ((i=0 ; i<5; i++))
+  do
+    python2 gridworld.py -a q -k ${var[$i]} -n 0
+    cp qtable.txt qdeterminista$i.txt
+    sudo cp qtable.ini.txt qtable.txt
+  done
+
+  for ((i=0 ; i<5; i++))
+  do
+    python2 gridworld.py -a q -k ${var[$i]} -n 0.3
+    cp qtable.txt q0.3estocastico$i.txt
+    sudo cp qtable.ini.txt qtable.txt
+  done
+
+  for ((i=0 ; i<5; i++))
+  do
+    python2 gridworld.py -a q -k ${var[$i]} -n 0.5
+    cp qtable.txt q0.5estocastico$i.txt
+    sudo cp qtable.ini.txt qtable.txt
+  done
+
+  for ((i=0 ; i<5; i++))
+  do
+    python2 gridworld.py -a q -k ${var[$i]} -n 1
+    cp qtable.txt q1estocastico$i.txt
+    sudo cp qtable.ini.txt qtable.txt
+  done
+echo "Done"
