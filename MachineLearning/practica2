@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+var=(1 5 10 15 20)
+aux=0
+rm qtable.txt
+touch qtable.txt
+
+  
+  for ((i=1 ; i<5; i++))
+  do
+    if [ $i -gt 4 ]
+    then
+        aux=4
+    else
+        aux=$i
+    fi
+
+    for ((j=0 ; j<5; j++))
+    do
+        for ((h=0 ; h<${var[$j]} ; h++))
+        do
+            python2 busters.py -l labAA${i}.lay -k ${aux} -p QLearningAgent
+        done
+        mv qtable.txt ${i}${j}${h}
+        touch qtable.txt
+    done
+  done
+
+echo "Done"
