@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+topologia=(20 30 50 70)  # Numero de ejemplos por heuristica
+razonAprendizaje=(0.01 0.02 0.05 0.25 0.5 0.9 0.9)  # Heuristicas utilizadas para las pruebas
+
+rm -rf scripts
+mkdir scripts
+cd scripts
+cp ../script.R script.R
+
+
+
+
+# Pruebas de heuristica
+for ((h=0; h < "${#topologia[*]}"; h++))
+do
+    for ((j=0; j < "${#razonAprendizaje[*]}"; j++))
+    do
+        #variable=$(($h*7+$j))
+        find . -type f -name "script.R" | xargs sed -i "s/30/${topologia[h]}/g"
+        find . -type f -name "script.R" | xargs sed -i "s/0.1/${razonAprendizaje[j]}/g"
+
+        
+    done
+ done

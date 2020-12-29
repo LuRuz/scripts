@@ -3,7 +3,7 @@
 #Script para crear carpetas para guardar resultados
 
 NUM_EXAMPLES="6"  # Numero de ejemplos por heuristica
-HEURISTICS=(0.01 0.1 0.25 0.5 0.75 0.9 1)  # Heuristicas utilizadas para las pruebas
+HEURISTICS=(0.01 0.25 0.5 0.75 0.9)  # Heuristicas utilizadas para las pruebas
 TIME_THRESH="400"  # Tiempo maximo de espera para un test
 
 
@@ -11,7 +11,7 @@ TIME_THRESH="400"  # Tiempo maximo de espera para un test
 for ((h=0; h < "${#HEURISTICS[*]}"; h++))
 do
     echo ${HEURISTICS[*]}
-    for ((i=5; i <= 35; i+=5))
+    for ((i=10; i <= 70; i+=20))
     do
         echo "PRUEBA $i"
         mkdir $i-${HEURISTICS[h]}

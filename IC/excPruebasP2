@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+
+echo "Ubicacion ff-metric"
+read uff
+cd "${uff//\~/$HOME}" 
+
+echo "Ubicacion del dominio"
+read udominio
+
+echo "Nombre del dominio"
+read dominio
+# cd "${ubication//\~/$HOME}"
+echo "Ubicacion de las pruebas"
+read upruebas
+# cd "${ubication//\~/$HOME}"
+
+echo "Numero de la primera prueba"
+read Pzero
+echo "Numero de la ultima prueba"
+read nPruebas
+
+mkdir "${upruebas//\~/$HOME}"/resultados
+
+# Pruebas de heuristica
+for ((h= $Pzero; h <= $nPruebas; h++))
+do
+    ./ff -o "${udominio//\~/$HOME}"/"${dominio//\~/$HOME}" -f "${upruebas//\~/$HOME}"/problema-$h.pddl > "${upruebas//\~/$HOME}"/resultados/resultados-P$h.txt
+    echo "Prueba $h finalizada con exito" 
+ done
