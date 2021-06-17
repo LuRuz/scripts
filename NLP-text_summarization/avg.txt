@@ -1,0 +1,19 @@
+# NUMERO DE PALABRAS POR RESUMEN
+s2s/S2S-cnn_dailymail.csv: 39.23176675369887
+s2s/S2S-gigaword.csv: 29.57794871794872
+s2s/S2S-xsum.csv: 33.030265596046945
+s2s/S2S-biomrc.csv: 36.57273079906905
+albert/albert-cnn_dailymail.csv: 152.92297650130547
+albert/albert-gigaword.csv: 28.40084835630965
+albert/albert-xsum.csv: 88.99117309559537
+albert/albert-biomrc.csv: 68.15069821567106
+
+#MEDIA DE PALABRAS POR ORACION 
+s2s/S2S-cnn_dailymail.csv: 18.246679467182076
+s2s/S2S-gigaword.csv: 13.909905982905974
+s2s/S2S-xsum.csv: 16.584604438621472
+s2s/S2S-biomrc.csv: 15.061753400331588
+albert/albert-cnn_dailymail.csv: 19.893901701493384
+albert/albert-gigaword.csv: 14.345837751855772
+albert/albert-xsum.csv: 16.971481294607813
+albert/albert-biomrc.csv: 15.77061454848028
